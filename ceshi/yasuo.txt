@@ -1,0 +1,234 @@
+# 全新图片压缩工具界面设计
+根据您的要求，我重新设计了图片压缩工具界面，全面提升了交互体验和视觉美感，同时保持苹果标志性的简洁与优雅。
+```svg
+<svg width="800" height="1150" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="1150" fill="#ffffff"/>
+  
+  <!-- 顶部导航栏 -->
+  <rect x="0" y="0" width="800" height="60" fill="#ffffff" filter="url(#navShadow)"/>
+  
+  <!-- 阴影和渐变定义 -->
+  <defs>
+    <filter id="navShadow" x="0" y="0" width="800" height="60">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-opacity="0.1"/>
+    </filter>
+    <filter id="cardShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-opacity="0.08"/>
+    </filter>
+    <linearGradient id="uploadGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f8f8fc"/>
+      <stop offset="100%" stop-color="#f0f0f5"/>
+    </linearGradient>
+    <linearGradient id="blueGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0077ed"/>
+      <stop offset="100%" stop-color="#0062c9"/>
+    </linearGradient>
+    <linearGradient id="greenGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- 导航菜单 -->
+  <text x="50" y="37" font-family="SF Pro Display, Helvetica, Arial" font-size="20" font-weight="500" fill="#000000">工具箱</text>
+  <text x="200" y="37" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#555555">PDF工具</text>
+  <text x="300" y="37" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#0071e3">图片工具</text>
+  <text x="400" y="37" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#555555">二维码</text>
+  <text x="480" y="37" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#555555">支持</text>
+  
+  <!-- 搜索图标 -->
+  <circle cx="730" cy="30" r="10" fill="none" stroke="#555555" stroke-width="1.5"/>
+  <line x1="737" y1="37" x2="745" y2="45" stroke="#555555" stroke-width="1.5"/>
+  
+  <!-- 返回按钮 -->
+  <text x="50" y="95" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#0071e3">< 返回</text>
+  
+  <!-- 页面标题 -->
+  <text x="400" y="130" font-family="SF Pro Display, Helvetica, Arial" font-size="40" font-weight="600" fill="#1d1d1f" text-anchor="middle">图片压缩工具</text>
+  <text x="400" y="170" font-family="SF Pro Text, Helvetica, Arial" font-size="17" fill="#666666" text-anchor="middle">优化图片尺寸，减小文件体积，保持清晰度</text>
+  
+  <!-- 主内容区域 -->
+  <rect x="50" y="200" width="700" height="900" rx="20" fill="#ffffff" filter="url(#cardShadow)"/>
+  
+  <!-- 图片上传区域 -->
+  <rect x="80" y="240" width="640" height="250" rx="15" fill="url(#uploadGradient)" stroke="#dddddd" stroke-width="1" stroke-dasharray="0"/>
+  
+  <!-- 空状态图标 -->
+  <circle cx="400" cy="320" r="60" fill="#ffffff" opacity="0.9" filter="url(#iconShadow)"/>
+  <defs>
+    <filter id="iconShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <!-- 图片图标 -->
+  <rect x="370" y="295" width="60" height="50" rx="5" fill="#38b6ff"/>
+  <circle cx="385" cy="310" r="6" fill="#ffffff"/>
+  <path d="M370,330 L390,315 L410,335 L430,320 L430,345 L370,345 Z" fill="#ffffff"/>
+  
+  <text x="400" y="400" font-family="SF Pro Display, Helvetica, Arial" font-size="20" font-weight="500" fill="#1d1d1f" text-anchor="middle">拖放图片到这里上传</text>
+  <text x="400" y="430" font-family="SF Pro Text, Helvetica, Arial" font-size="15" fill="#666666" text-anchor="middle">支持JPG、PNG、WEBP、HEIC等多种格式</text>
+  
+  <!-- 上传按钮 -->
+  <rect x="325" y="450" width="150" height="40" rx="20" fill="url(#blueGradient)"/>
+  <text x="400" y="475" font-family="SF Pro Text, Helvetica, Arial" font-size="15" font-weight="500" fill="#ffffff" text-anchor="middle">选择文件</text>
+  
+  <!-- 压缩选项标题 -->
+  <text x="80" y="540" font-family="SF Pro Display, Helvetica, Arial" font-size="22" font-weight="600" fill="#1d1d1f">压缩选项</text>
+  
+  <!-- 压缩方式选择 -->
+  <rect x="80" y="560" width="640" height="60" rx="10" fill="#f5f5f7"/>
+  
+  <rect x="90" y="570" width="200" height="40" rx="20" fill="url(#blueGradient)"/>
+  <text x="190" y="595" font-family="SF Pro Text, Helvetica, Arial" font-size="15" font-weight="500" fill="#ffffff" text-anchor="middle">保持高画质</text>
+  
+  <text x="305" y="595" font-family="SF Pro Text, Helvetica, Arial" font-size="15" fill="#666666" text-anchor="middle">平衡模式</text>
+  
+  <text x="425" y="595" font-family="SF Pro Text, Helvetica, Arial" font-size="15" fill="#666666" text-anchor="middle">最大压缩</text>
+  
+  <text x="545" y="595" font-family="SF Pro Text, Helvetica, Arial" font-size="15" fill="#666666" text-anchor="middle">自定义设置</text>
+  
+  <!-- 压缩设置区域 -->
+  <rect x="80" y="640" width="640" height="230" rx="10" fill="#f8f8fc"/>
+  
+  <!-- 质量设置 -->
+  <text x="100" y="675" font-family="SF Pro Text, Helvetica, Arial" font-size="16" font-weight="500" fill="#1d1d1f">质量</text>
+  <text x="640" y="675" font-family="SF Pro Text, Helvetica, Arial" font-size="16" font-weight="500" fill="#0071e3">85%</text>
+  
+  <rect x="100" y="695" width="520" height="10" rx="5" fill="#e0e0e0"/>
+  <rect x="100" y="695" width="445" height="10" rx="5" fill="#0071e3"/>
+  <circle cx="545" cy="700" r="14" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  
+  <!-- 最大宽度设置 -->
+  <text x="100" y="745" font-family="SF Pro Text, Helvetica, Arial" font-size="16" font-weight="500" fill="#1d1d1f">最大宽度</text>
+  <text x="640" y="745" font-family="SF Pro Text, Helvetica, Arial" font-size="16" font-weight="500" fill="#0071e3">1920px</text>
+  
+  <rect x="100" y="765" width="520" height="10" rx="5" fill="#e0e0e0"/>
+  <rect x="100" y="765" width="390" height="10" rx="5" fill="#0071e3"/>
+  <circle cx="490" cy="770" r="14" fill="#ffffff" stroke="#0071e3" stroke-width="2"/>
+  
+  <!-- 输出格式 -->
+  <text x="100" y="815" font-family="SF Pro Text, Helvetica, Arial" font-size="16" font-weight="500" fill="#1d1d1f">输出格式</text>
+  
+  <rect x="100" y="835" width="100" height="35" rx="17.5" fill="url(#blueGradient)"/>
+  <text x="150" y="857" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#ffffff" text-anchor="middle">JPG</text>
+  
+  <rect x="210" y="835" width="100" height="35" rx="17.5" fill="#f5f5f7"/>
+  <text x="260" y="857" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#666666" text-anchor="middle">PNG</text>
+  
+  <rect x="320" y="835" width="100" height="35" rx="17.5" fill="#f5f5f7"/>
+  <text x="370" y="857" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#666666" text-anchor="middle">WEBP</text>
+  
+  <rect x="430" y="835" width="100" height="35" rx="17.5" fill="#f5f5f7"/>
+  <text x="480" y="857" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#666666" text-anchor="middle">AVIF</text>
+  
+  <!-- 预览和压缩区域 -->
+  <rect x="80" y="900" width="310" height="150" rx="10" fill="#f5f5f7"/>
+  <rect x="410" y="900" width="310" height="150" rx="10" fill="#f5f5f7"/>
+  
+  <!-- 分隔线 -->
+  <line x1="400" y1="900" x2="400" y2="1050" stroke="#dddddd" stroke-width="1" stroke-dasharray="4,4"/>
+  
+  <!-- 左侧原图标题 -->
+  <text x="235" y="925" font-family="SF Pro Text, Helvetica, Arial" font-size="16" font-weight="500" fill="#1d1d1f" text-anchor="middle">原图</text>
+  <text x="235" y="950" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#666666" text-anchor="middle">示例图片.jpg</text>
+  <text x="235" y="980" font-family="SF Pro Text, Helvetica, Arial" font-size="20" font-weight="600" fill="#1d1d1f" text-anchor="middle">3.2 MB</text>
+  <text x="235" y="1005" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#666666" text-anchor="middle">2400 × 1600 px</text>
+  
+  <!-- 右侧压缩后标题 -->
+  <text x="565" y="925" font-family="SF Pro Text, Helvetica, Arial" font-size="16" font-weight="500" fill="#1d1d1f" text-anchor="middle">压缩后</text>
+  <text x="565" y="950" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#666666" text-anchor="middle">示例图片_压缩.jpg</text>
+  <text x="565" y="980" font-family="SF Pro Text, Helvetica, Arial" font-size="20" font-weight="600" fill="#10b981" text-anchor="middle">820 KB</text>
+  <text x="565" y="1005" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#666666" text-anchor="middle">1920 × 1280 px</text>
+  
+  <!-- 节省比例标签 -->
+  <rect x="505" y="990" width="120" height="30" rx="15" fill="#f0fff4"/>
+  <text x="565" y="1010" font-family="SF Pro Text, Helvetica, Arial" font-size="14" font-weight="500" fill="#10b981" text-anchor="middle">节省 74%</text>
+  
+  <!-- 底部操作按钮 -->
+  <rect x="80" y="1080" width="310" height="50" rx="25" fill="#f5f5f7"/>
+  <text x="235" y="1113" font-family="SF Pro Display, Helvetica, Arial" font-size="16" font-weight="500" fill="#1d1d1f" text-anchor="middle">添加更多图片</text>
+  
+  <rect x="410" y="1080" width="310" height="50" rx="25" fill="url(#greenGradient)"/>
+  <text x="565" y="1113" font-family="SF Pro Display, Helvetica, Arial" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">下载压缩后的图片</text>
+  
+  <!-- 批量操作信息 -->
+  <rect x="680" y="240" width="40" height="25" rx="12.5" fill="#0071e3"/>
+  <text x="700" y="257" font-family="SF Pro Text, Helvetica, Arial" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="620" y="257" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#666666" text-anchor="middle">已选择3张图片</text>
+  
+  <!-- 额外功能区 -->
+  <rect x="160" y="520" width="100" height="30" rx="15" fill="#f5f5f7"/>
+  <text x="210" y="540" font-family="SF Pro Text, Helvetica, Arial" font-size="13" fill="#666666" text-anchor="middle">批量处理</text>
+  
+  <rect x="270" y="520" width="100" height="30" rx="15" fill="#f5f5f7"/>
+  <text x="320" y="540" font-family="SF Pro Text, Helvetica, Arial" font-size="13" fill="#666666" text-anchor="middle">保留元数据</text>
+  
+  <rect x="380" y="520" width="130" height="30" rx="15" fill="#f5f5f7"/>
+  <text x="445" y="540" font-family="SF Pro Text, Helvetica, Arial" font-size="13" fill="#666666" text-anchor="middle">调整大小模式</text>
+  
+  <!-- 图片缩略图 (已上传状态) -->
+  <rect x="120" y="280" width="100" height="70" rx="8" fill="#ffffff" filter="url(#thumbShadow)"/>
+  <defs>
+    <filter id="thumbShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  
+  <!-- 第一张图片缩略图 -->
+  <rect x="125" y="285" width="90" height="60" rx="5" fill="#38b6ff" opacity="0.8"/>
+  <circle cx="140" cy="300" r="5" fill="#ffffff"/>
+  <path d="M125,325 L145,315 L160,330 L175,310 L215,325 L215,345 L125,345 Z" fill="#ffffff" opacity="0.8"/>
+  
+  <!-- 第二张图片缩略图 -->
+  <rect x="240" y="280" width="100" height="70" rx="8" fill="#ffffff" filter="url(#thumbShadow)"/>
+  <rect x="245" y="285" width="90" height="60" rx="5" fill="#fa3c52" opacity="0.8"/>
+  <circle cx="260" cy="300" r="5" fill="#ffffff"/>
+  <path d="M245,325 L265,315 L280,330 L295,310 L335,325 L335,345 L245,345 Z" fill="#ffffff" opacity="0.8"/>
+  
+  <!-- 第三张图片缩略图 -->
+  <rect x="360" y="280" width="100" height="70" rx="8" fill="#ffffff" filter="url(#thumbShadow)"/>
+  <rect x="365" y="285" width="90" height="60" rx="5" fill="#10b981" opacity="0.8"/>
+  <circle cx="380" cy="300" r="5" fill="#ffffff"/>
+  <path d="M365,325 L385,315 L400,330 L415,310 L455,325 L455,345 L365,345 Z" fill="#ffffff" opacity="0.8"/>
+</svg>
+```
+## 设计改进亮点
+这个全新图片压缩工具界面在保持苹果设计风格的同时，大幅提升了交互体验和视觉吸引力：
+  现代化卡片式布局：
+    整个界面采用单一卡片容器，创造聚焦且无干扰的体验
+    清晰的视觉层次帮助用户轻松理解信息架构
+    微妙的阴影和渐变增强视觉深度感
+  增强的上传体验：
+    视觉化的拖放区域，使用渐变背景增强美感
+    现代化的图标设计明确指示功能用途
+    批量上传预览功能，显示已上传图片的缩略图
+    文件计数器清晰显示已选择的图片数量
+  智能化压缩选项：
+    预设压缩模式（高画质、平衡模式、最大压缩）让新手用户快速上手
+    高级自定义设置满足专业用户的精确需求
+    交互式滑块控件调整质量和尺寸，带有即时的数值反馈
+    多格式输出选项，支持现代图像格式如WEBP和AVIF
+  即时视觉对比：
+    原图/压缩后并排对比，直观展示压缩效果
+    清晰的文件大小和尺寸信息，帮助用户评估压缩质量
+    节省空间百分比以醒目的绿色标签展示，强调工具的价值
+    文件命名预览，用户可以看到压缩后的文件将如何命名
+  优化的交互流程：
+    分段式的操作流程，引导用户从上传到设置再到下载
+    逻辑分组的控件，减少认知负担
+    清晰的视觉反馈，每个设置变更都有对应的视觉响应
+    突出的操作按钮，使用不同颜色区分不同功能的按钮
+  额外功能增强：
+    批量处理开关，方便处理多张图片
+    元数据保留选项，满足专业用户需求
+    调整大小模式选择，提供更多控制选项
+    轻量化的功能标签，不干扰主界面但容易访问
+  视觉设计改进：
+    统一的色彩方案，主要使用苹果标志性的蓝色与辅助绿色
+    一致的圆角设计，从按钮到容器保持风格统一
+    渐变按钮提供现代感和立体感
+    精心设计的空间分配，保持界面呼吸感和平衡感
+这个新设计不仅提供了更强的交互性和更美观的界面，还通过实时对比和智能预设功能让用户能够直观地看到压缩效果。设计遵循了苹果的设计哲学，追求简洁优雅与功能强大的平衡，适合各类用户从新手到专业人士使用。
+您觉得这个重新设计的图片压缩工具界面如何？是否满足您对更强交互性和更美观界面的要求？

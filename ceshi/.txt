@@ -1,0 +1,148 @@
+
+# 优化后的PDF转换界面设计
+
+根据您的要求，我重新设计了PDF转换界面，增强了交互性和视觉吸引力，同时保持苹果风格的简洁优雅。
+
+```svg
+<svg width="800" height="1000" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="800" height="1000" fill="#ffffff"/>
+  
+  <!-- 顶部导航栏 -->
+  <rect x="0" y="0" width="800" height="60" fill="#ffffff" filter="url(#shadow1)"/>
+  
+  <!-- 导航阴影 -->
+  <defs>
+    <filter id="shadow1" x="0" y="0" width="800" height="60">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-opacity="0.1"/>
+    </filter>
+    <linearGradient id="uploadGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f5f5f7"/>
+      <stop offset="100%" stop-color="#e8e8ed"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- 导航菜单 -->
+  <text x="50" y="37" font-family="SF Pro Display, Helvetica, Arial" font-size="20" font-weight="500" fill="#000000">工具箱</text>
+  <text x="200" y="37" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#0071e3">PDF工具</text>
+  <text x="300" y="37" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#555555">图片工具</text>
+  <text x="400" y="37" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#555555">二维码</text>
+  <text x="480" y="37" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#555555">支持</text>
+  
+  <!-- 搜索图标 -->
+  <circle cx="730" cy="30" r="10" fill="none" stroke="#555555" stroke-width="1.5"/>
+  <line x1="737" y1="37" x2="745" y2="45" stroke="#555555" stroke-width="1.5"/>
+  
+  <!-- 返回按钮 -->
+  <text x="50" y="95" font-family="SF Pro Text, Helvetica, Arial" font-size="14" fill="#0071e3">< 返回</text>
+  
+  <!-- 页面标题 -->
+  <text x="400" y="130" font-family="SF Pro Display, Helvetica, Arial" font-size="40" font-weight="600" fill="#1d1d1f" text-anchor="middle">PDF格式转换</text>
+  <text x="400" y="170" font-family="SF Pro Text, Helvetica, Arial" font-size="17" fill="#666666" text-anchor="middle">将PDF文件转换为您需要的格式，或将其他文件转为PDF</text>
+  
+  <!-- 步骤指示器 -->
+  <rect x="290" y="210" width="220" height="40" rx="20" fill="#f5f5f7"/>
+  <circle cx="340" cy="230" r="15" fill="#0071e3"/>
+  <text x="340" y="235" font-family="SF Pro Text, Helvetica, Arial" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">1</text>
+  <line x1="355" y1="230" x2="385" y2="230" stroke="#dddddd" stroke-width="2"/>
+  <circle cx="400" cy="230" r="15" fill="#dddddd"/>
+  <text x="400" y="235" font-family="SF Pro Text, Helvetica, Arial" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">2</text>
+  <line x1="415" y1="230" x2="445" y2="230" stroke="#dddddd" stroke-width="2"/>
+  <circle cx="460" cy="230" r="15" fill="#dddddd"/>
+  <text x="460" y="235" font-family="SF Pro Text, Helvetica, Arial" font-size="14" font-weight="600" fill="#ffffff" text-anchor="middle">3</text>
+  
+  <!-- 转换方向选择器 -->
+  <text x="400" y="290" font-family="SF Pro Display, Helvetica, Arial" font-size="20" font-weight="600" fill="#1d1d1f" text-anchor="middle">选择转换方向</text>
+  
+  <rect x="200" y="310" width="170" height="60" rx="30" fill="#0071e3"/>
+  <text x="285" y="345" font-family="SF Pro Text, Helvetica, Arial" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">PDF转其他格式</text>
+  
+  <rect x="430" y="310" width="170" height="60" rx="30" fill="#f5f5f7"/>
+  <text x="515" y="345" font-family="SF Pro Text, Helvetica, Arial" font-size="16" font-weight="500" fill="#1d1d1f" text-anchor="middle">其他格式转PDF</text>
+  
+  <!-- 格式选择区 -->
+  <text x="150" y="415" font-family="SF Pro Display, Helvetica, Arial" font-size="20" font-weight="500" fill="#1d1d1f">目标格式</text>
+  
+  <!-- 格式选择卡片 - 使用网格布局 -->
+  <rect x="150" y="435" width="120" height="120" rx="16" fill="#ffffff" filter="url(#cardShadow)"/>
+  <defs>
+    <filter id="cardShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="2" stdDeviation="2" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+  <rect x="185" y="455" width="50" height="50" fill="#fa3c52" rx="10"/>
+  <text x="210" y="487" font-family="SF Pro Display, Helvetica, Arial" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle">W</text>
+  <text x="210" y="525" font-family="SF Pro Text, Helvetica, Arial" font-size="14" font-weight="500" fill="#1d1d1f" text-anchor="middle">Word</text>
+  
+  <rect x="290" y="435" width="120" height="120" rx="16" fill="#ffffff" filter="url(#cardShadow)"/>
+  <rect x="325" y="455" width="50" height="50" fill="#107c41" rx="10"/>
+  <text x="350" y="487" font-family="SF Pro Display, Helvetica, Arial" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle">X</text>
+  <text x="350" y="525" font-family="SF Pro Text, Helvetica, Arial" font-size="14" font-weight="500" fill="#1d1d1f" text-anchor="middle">Excel</text>
+  
+  <rect x="430" y="435" width="120" height="120" rx="16" fill="#ffffff" filter="url(#cardShadow)"/>
+  <rect x="465" y="455" width="50" height="50" fill="#d04423" rx="10"/>
+  <text x="490" y="487" font-family="SF Pro Display, Helvetica, Arial" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle">P</text>
+  <text x="490" y="525" font-family="SF Pro Text, Helvetica, Arial" font-size="14" font-weight="500" fill="#1d1d1f" text-anchor="middle">PowerPoint</text>
+  
+  <rect x="570" y="435" width="120" height="120" rx="16" fill="#ffffff" filter="url(#cardShadow)"/>
+  <rect x="605" y="455" width="50" height="50" fill="#38b6ff" rx="10"/>
+  <text x="630" y="487" font-family="SF Pro Display, Helvetica, Arial" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle">I</text>
+  <text x="630" y="525" font-family="SF Pro Text, Helvetica, Arial" font-size="14" font-weight="500" fill="#1d1d1f" text-anchor="middle">图片</text>
+  
+  <!-- 上传区域 - 更现代化设计 -->
+  <rect x="150" y="585" width="500" height="270" rx="20" fill="url(#uploadGradient)"/>
+  
+  <!-- 上传图标 -->
+  <circle cx="400" cy="670" r="50" fill="#ffffff" opacity="0.9"/>
+  <path d="M400,640 L420,670 L410,670 L410,690 L390,690 L390,670 L380,670 Z" fill="#0071e3"/>
+  
+  <text x="400" y="740" font-family="SF Pro Display, Helvetica, Arial" font-size="22" font-weight="500" fill="#1d1d1f" text-anchor="middle">拖放PDF文件到这里</text>
+  <text x="400" y="770" font-family="SF Pro Text, Helvetica, Arial" font-size="16" fill="#666666" text-anchor="middle">或</text>
+  
+  <!-- 选择文件按钮 - 更突出 -->
+  <rect x="325" y="790" width="150" height="40" rx="20" fill="#0071e3"/>
+  <text x="400" y="815" font-family="SF Pro Text, Helvetica, Arial" font-size="16" font-weight="500" fill="#ffffff" text-anchor="middle">选择文件</text>
+  
+  <!-- 文件格式说明 -->
+  <text x="400" y="900" font-family="SF Pro Text, Helvetica, Arial" font-size="13" fill="#666666" text-anchor="middle">支持PDF、DOC、DOCX、XLS、XLSX、PPT、PPTX、JPG、PNG等格式</text>
+  <text x="400" y="925" font-family="SF Pro Text, Helvetica, Arial" font-size="13" fill="#666666" text-anchor="middle">单个文件最大支持50MB</text>
+  
+  <!-- 继续按钮 -->
+  <rect x="300" y="950" width="200" height="50" rx="25" fill="#0071e3"/>
+  <text x="400" y="980" font-family="SF Pro Display, Helvetica, Arial" font-size="18" font-weight="500" fill="#ffffff" text-anchor="middle">继续</text>
+</svg>
+```
+
+## 设计改进亮点
+
+这个重新设计的PDF转换界面在保持苹果风格的同时，提供了更强的交互性和更美观的布局：
+
+1. 直观的步骤引导：
+   - 添加了步骤指示器，清晰展示用户在转换流程中的位置
+   - 当前步骤用蓝色高亮，提供直观的视觉引导
+
+2. 现代化转换方向选择：
+   - 使用胶囊形状按钮替代原来的文本导航
+   - 提供明确的视觉反馈，让用户知道当前选择的是哪种转换方向
+
+3. 网格布局的格式选择：
+   - 采用卡片式设计展示各种文件格式
+   - 每种格式都有独特的品牌色彩和明确的图标
+   - 添加了微妙的阴影效果，增强视觉层次感
+
+4. 增强型上传区域：
+   - 使用渐变背景增加视觉吸引力
+   - 添加简明的上传图标，提高直观性
+   - 优化排版和空间分配，创造更舒适的视觉体验
+
+5. 更明确的操作流程：
+   - 底部添加大型继续按钮，指引用户下一步操作
+   - 改进的信息层级让用户能快速理解需要执行的操作
+   - 大胆的色彩对比让关键操作区域一目了然
+
+6. 精致的细节处理：
+   - 添加更多辅助文本说明支持的文件格式和大小限制
+   - 字体大小和权重经过精心调整，创造清晰的视觉层次
+   - 边距和间距优化，确保界面整洁有序
+
+这个设计不仅在视觉上更具吸引力，也在功能上提供了更直观的操作流程，引导用户完成PDF转换任务的每一步骤。交互元素的位置和设计都经过精心考虑，确保用户体验流畅自然。

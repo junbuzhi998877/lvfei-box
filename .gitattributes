@@ -1,0 +1,8 @@
+# 所有文本文件提交时转换为LF，检出时不转换
+* text eol=lf
+
+# 特定文件保留CRLF（如Windows脚本）
+*.bat text eol=crlf
+
+# 二进制文件不转换
+*.png -text

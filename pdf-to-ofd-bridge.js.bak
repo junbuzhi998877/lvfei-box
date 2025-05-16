@@ -1,0 +1,224 @@
+const { spawn } = require('child_process');
+const path = require('path');
+const fs = require('fs');
+const os = require('os');
+
+/**
+ * PDF转OFD桥接模块
+ * 负责Electron应用与Java转换服务的交互
+ */
+class PDFToOFDConverter {
+  constructor() {
+    // Java程序路径配置
+    this.javaPath = 'java'; // 使用系统环境变量中的Java
+    this.jarPath = path.join(__dirname, 'lib', 'pdf-to-ofd-converter.jar');
+    
+    // 确保lib目录存在
+    this.ensureLibDirExists();
+  }
+  
+  /**
+   * 确保lib目录存在
+   */
+  ensureLibDirExists() {
+    const libDir = path.join(__dirname, 'lib');
+    if (!fs.existsSync(libDir)) {
+      fs.mkdirSync(libDir, { recursive: true });
+    }
+  }
+  
+  /**
+   * 检查Java环境
+   * @returns {Promise<boolean>} 是否可用
+   */
+  async checkJavaEnvironment() {
+    return new Promise((resolve) => {
+      const java = spawn(this.javaPath, ['-version']);
+      
+      java.on('error', () => {
+        resolve(false);
+      });
+      
+      java.on('close', (code) => {
+        resolve(code === 0);
+      });
+    });
+  }
+  
+  /**
+   * 转换PDF为OFD
+   * @param {string} inputPath PDF文件路径
+   * @param {string} outputPath OFD输出路径（可选，默认与输入文件同目录同名.ofd）
+   * @param {object} options 转换选项
+   * @returns {Promise<object>} 转换结果
+   */
+  async convertPDFToOFD(inputPath, outputPath = null, options = {}) {
+    // 检查输入文件
+    if (!fs.existsSync(inputPath)) {
+      throw new Error(`输入文件不存在: ${inputPath}`);
+    }
+    
+    // 检查Java环境
+    const javaAvailable = await this.checkJavaEnvironment();
+    if (!javaAvailable) {
+      throw new Error('Java环境未正确配置，请安装或配置Java 8或更高版本');
+    }
+    
+    // 输出路径未指定时，使用默认路径
+    if (!outputPath) {
+      outputPath = inputPath.replace(/\.pdf$/i, '.ofd');
+    }
+    
+    // 转换参数
+    const args = ['-jar', this.jarPath, inputPath];
+    
+    // 指定输出路径
+    if (outputPath !== inputPath.replace(/\.pdf$/i, '.ofd')) {
+      args.push('--output', outputPath);
+    }
+    
+    // 附加选项
+    if (options.preserveSignatures) {
+      args.push('--preserve-signatures');
+    }
+    
+    if (options.conformance) {
+      args.push('--conformance', options.conformance);
+    }
+    
+    if (options.isInvoice) {
+      args.push('--invoice');
+    }
+    
+    // 创建临时文件存储转换日志
+    const tempLogFile = path.join(os.tmpdir(), `pdf-to-ofd-${Date.now()}.log`);
+    
+    // 返回转换Promise
+    return new Promise((resolve, reject) => {
+      const java = spawn(this.javaPath, args);
+      
+      // 收集输出
+      let stdout = '';
+      let stderr = '';
+      
+      java.stdout.on('data', (data) => {
+        stdout += data.toString();
+      });
+      
+      java.stderr.on('data', (data) => {
+        stderr += data.toString();
+      });
+      
+      // 进程结束
+      java.on('close', (code) => {
+        if (code === 0) {
+          resolve({
+            success: true,
+            outputPath,
+            log: stdout
+          });
+        } else {
+          const error = {
+            success: false,
+            code,
+            error: stderr || 'Unknown error',
+            log: stdout
+          };
+          
+          // 写入日志文件
+          fs.writeFileSync(tempLogFile, `STDOUT:\n${stdout}\n\nSTDERR:\n${stderr}`);
+          
+          error.logFile = tempLogFile;
+          reject(error);
+        }
+      });
+      
+      // 进程错误
+      java.on('error', (err) => {
+        reject({
+          success: false,
+          error: `启动Java进程失败: ${err.message}`
+        });
+      });
+    });
+  }
+  
+  /**
+   * 批量转换PDF为OFD
+   * @param {Array<object>} files 文件列表，每项包含{inputPath, outputPath, options}
+   * @param {number} concurrency 并发数，默认为2
+   * @returns {Promise<object>} 批量转换结果
+   */
+  async batchConvert(files, concurrency = 2) {
+    // 检查Java环境
+    const javaAvailable = await this.checkJavaEnvironment();
+    if (!javaAvailable) {
+      throw new Error('Java环境未正确配置，请安装或配置Java 8或更高版本');
+    }
+    
+    // 批量处理结果
+    const results = {
+      success: true,
+      totalFiles: files.length,
+      successCount: 0,
+      failedCount: 0,
+      details: [],
+      startTime: Date.now()
+    };
+    
+    // 利用Promise.all和数组分块实现并发控制
+    for (let i = 0; i < files.length; i += concurrency) {
+      const chunk = files.slice(i, i + concurrency);
+      const promises = chunk.map(file => 
+        this.convertPDFToOFD(file.inputPath, file.outputPath, file.options)
+          .then(result => {
+            results.successCount++;
+            results.details.push({
+              inputPath: file.inputPath,
+              outputPath: result.outputPath,
+              success: true
+            });
+            return result;
+          })
+          .catch(error => {
+            results.failedCount++;
+            results.success = false;
+            results.details.push({
+              inputPath: file.inputPath,
+              success: false,
+              error: error.error || 'Unknown error'
+            });
+            return error;
+          })
+      );
+      
+      // 等待当前批次完成
+      await Promise.all(promises);
+    }
+    
+    // 计算总耗时
+    results.endTime = Date.now();
+    results.totalTime = results.endTime - results.startTime;
+    
+    return results;
+  }
+  
+  /**
+   * 检测PDF是否为发票
+   * 通过关键词检测，判断PDF是否为发票类型
+   * @param {string} pdfPath PDF文件路径
+   * @returns {Promise<boolean>} 是否为发票
+   */
+  async detectInvoice(pdfPath) {
+    // 这里简化实现，实际应调用Java程序分析PDF内容
+    // 根据文件名和一些简单规则判断
+    const filename = path.basename(pdfPath).toLowerCase();
+    return (
+      filename.includes('invoice') || 
+      filename.includes('发票') ||
+      filename.includes('fapiao')
+    );
+  }
+}
+
+module.exports = new PDFToOFDConverter();

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' 'unsafe-eval';">
+    <title>旅飞小熊工具箱</title>
+    <style>
+      /* 确保基础样式正确加载 */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        background-color: #f5f5f7;
+      }
+      /* 添加一个简单的加载提示 */
+      .loading-placeholder {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-size: 24px;
+        color: #333;
+      }
+
+      /* 添加简单的动画效果 */
+      .loading-dots:after {
+        content: '.';
+        animation: dots 1.5s steps(5, end) infinite;
+      }
+
+      @keyframes dots {
+        0%, 20% { content: '.'; }
+        40% { content: '..'; }
+        60% { content: '...'; }
+        80%, 100% { content: ''; }
+      }
+    </style>
+    <script type="module" crossorigin src="./assets/index-ab66cc11.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/react-18239860.js">
+    <link rel="modulepreload" crossorigin href="./assets/antd-92981061.js">
+    <link rel="stylesheet" href="./assets/index-f1ae1608.css">
+  </head>
+  <body>
+    <div id="root">
+      <div class="loading-placeholder">
+        正在加载应用<span class="loading-dots"></span>
+      </div>
+    </div>
+    
+    <script>
+      console.log('HTML 页面已加载');
+      // 监听 React 渲染完成
+      document.addEventListener('DOMContentLoaded', () => {
+        console.log('DOM 已完全加载和解析');
+      });
+      // 添加错误处理
+      window.addEventListener('error', (event) => {
+        console.error('页面错误:', event.error);
+      });
+    </script>
+  </body>
+</html> 

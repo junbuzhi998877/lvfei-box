@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch4jConfig>
+  <dontWrapJar>false</dontWrapJar>
+  <headerType>gui</headerType>
+  <jar>target/pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar</jar>
+  <outfile>target/PDF转换器.exe</outfile>
+  <errTitle>PDF转换器</errTitle>
+  <cmdLine></cmdLine>
+  <chdir>.</chdir>
+  <priority>normal</priority>
+  <downloadUrl>https://adoptium.net/</downloadUrl>
+  <supportUrl></supportUrl>
+  <stayAlive>false</stayAlive>
+  <restartOnCrash>false</restartOnCrash>
+  <manifest></manifest>
+  <icon>src/main/resources/icons/app.ico</icon>
+  <jre>
+    <path>%JAVA_HOME%</path>
+    <requiresJdk>false</requiresJdk>
+    <requires64Bit>true</requires64Bit>
+    <minVersion>14</minVersion>
+    <maxVersion></maxVersion>
+    <initialHeapSize>256</initialHeapSize>
+    <maxHeapSize>1024</maxHeapSize>
+    <opt>-Dfile.encoding=UTF-8</opt>
+  </jre>
+  <versionInfo>
+    <fileVersion>1.0.0.0</fileVersion>
+    <txtFileVersion>1.0.0</txtFileVersion>
+    <fileDescription>PDF文件格式转换工具</fileDescription>
+    <copyright>Copyright © 2024</copyright>
+    <productVersion>1.0.0.0</productVersion>
+    <txtProductVersion>1.0.0</txtProductVersion>
+    <productName>PDF转换器</productName>
+    <companyName></companyName>
+    <internalName>pdf-converter</internalName>
+    <originalFilename>PDF转换器.exe</originalFilename>
+  </versionInfo>
+</launch4jConfig> 

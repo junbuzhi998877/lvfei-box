@@ -1,0 +1,100 @@
+2025-05-08 06:31:18.650 [Thread-0] ERROR org.ofdrw.converter.ConvertHelper - convert to pdf failed
+java.lang.RuntimeException: 文档结构解析异常
+	at org.ofdrw.reader.ResourceManage.<init>(ResourceManage.java:98) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.reader.OFDReader.<init>(OFDReader.java:140) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.converter.ConvertHelper.ofd2pdf(ConvertHelper.java:63) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.converter.ConvertHelper.toPdf(ConvertHelper.java:175) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at com.pdfconverter.service.ConversionService.convertPDFToOFD(ConversionService.java:78) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at com.pdfconverter.ui.MainFrame.lambda$convertToOFD$10(MainFrame.java:347) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.io.FileNotFoundException: 无法在目录: C:\Users\Administrator\AppData\Local\Temp\ofd-tmp-586317860682520999中找到，文件 [ OFD.xml ]
+	at org.ofdrw.pkg.container.VirtualContainer.getFile(VirtualContainer.java:314) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.pkg.container.VirtualContainer.getObj(VirtualContainer.java:246) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.pkg.container.OFDDir.getOfd(OFDDir.java:113) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.reader.ResourceManage.loadDefaultDoc(ResourceManage.java:430) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.reader.ResourceManage.<init>(ResourceManage.java:96) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	... 6 more
+2025-05-08 06:31:18.658 [Thread-0] ERROR com.pdfconverter.service.ConversionService - PDF转OFD失败
+org.ofdrw.converter.GeneralConvertException: java.lang.RuntimeException: 文档结构解析异常
+	at org.ofdrw.converter.ConvertHelper.ofd2pdf(ConvertHelper.java:128) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.converter.ConvertHelper.toPdf(ConvertHelper.java:175) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at com.pdfconverter.service.ConversionService.convertPDFToOFD(ConversionService.java:78) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at com.pdfconverter.ui.MainFrame.lambda$convertToOFD$10(MainFrame.java:347) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.lang.RuntimeException: 文档结构解析异常
+	at org.ofdrw.reader.ResourceManage.<init>(ResourceManage.java:98) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.reader.OFDReader.<init>(OFDReader.java:140) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.converter.ConvertHelper.ofd2pdf(ConvertHelper.java:63) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	... 4 more
+Caused by: java.io.FileNotFoundException: 无法在目录: C:\Users\Administrator\AppData\Local\Temp\ofd-tmp-586317860682520999中找到，文件 [ OFD.xml ]
+	at org.ofdrw.pkg.container.VirtualContainer.getFile(VirtualContainer.java:314) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.pkg.container.VirtualContainer.getObj(VirtualContainer.java:246) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.pkg.container.OFDDir.getOfd(OFDDir.java:113) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.reader.ResourceManage.loadDefaultDoc(ResourceManage.java:430) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.reader.ResourceManage.<init>(ResourceManage.java:96) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.reader.OFDReader.<init>(OFDReader.java:140) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.converter.ConvertHelper.ofd2pdf(ConvertHelper.java:63) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	... 4 more
+2025-05-08 06:34:51.199 [Thread-0] ERROR org.ofdrw.converter.ConvertHelper - convert to pdf failed
+java.lang.RuntimeException: 文档结构解析异常
+	at org.ofdrw.reader.ResourceManage.<init>(ResourceManage.java:98) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.reader.OFDReader.<init>(OFDReader.java:140) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.converter.ConvertHelper.ofd2pdf(ConvertHelper.java:63) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.converter.ConvertHelper.toPdf(ConvertHelper.java:175) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at com.pdfconverter.service.ConversionService.convertPDFToOFD(ConversionService.java:77) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at com.pdfconverter.ui.MainFrame.lambda$convertToOFD$10(MainFrame.java:339) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.io.FileNotFoundException: 无法在目录: C:\Users\Administrator\AppData\Local\Temp\ofd-tmp-14700850621723702098中找到，文件 [ OFD.xml ]
+	at org.ofdrw.pkg.container.VirtualContainer.getFile(VirtualContainer.java:314) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.pkg.container.VirtualContainer.getObj(VirtualContainer.java:246) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.pkg.container.OFDDir.getOfd(OFDDir.java:113) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.reader.ResourceManage.loadDefaultDoc(ResourceManage.java:430) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.reader.ResourceManage.<init>(ResourceManage.java:96) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	... 6 more
+2025-05-08 06:34:51.206 [Thread-0] ERROR com.pdfconverter.service.ConversionService - PDF转OFD失败
+org.ofdrw.converter.GeneralConvertException: java.lang.RuntimeException: 文档结构解析异常
+	at org.ofdrw.converter.ConvertHelper.ofd2pdf(ConvertHelper.java:128) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.converter.ConvertHelper.toPdf(ConvertHelper.java:175) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at com.pdfconverter.service.ConversionService.convertPDFToOFD(ConversionService.java:77) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at com.pdfconverter.ui.MainFrame.lambda$convertToOFD$10(MainFrame.java:339) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: java.lang.RuntimeException: 文档结构解析异常
+	at org.ofdrw.reader.ResourceManage.<init>(ResourceManage.java:98) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.reader.OFDReader.<init>(OFDReader.java:140) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.converter.ConvertHelper.ofd2pdf(ConvertHelper.java:63) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	... 4 more
+Caused by: java.io.FileNotFoundException: 无法在目录: C:\Users\Administrator\AppData\Local\Temp\ofd-tmp-14700850621723702098中找到，文件 [ OFD.xml ]
+	at org.ofdrw.pkg.container.VirtualContainer.getFile(VirtualContainer.java:314) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.pkg.container.VirtualContainer.getObj(VirtualContainer.java:246) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.pkg.container.OFDDir.getOfd(OFDDir.java:113) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.reader.ResourceManage.loadDefaultDoc(ResourceManage.java:430) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.reader.ResourceManage.<init>(ResourceManage.java:96) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.reader.OFDReader.<init>(OFDReader.java:140) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	at org.ofdrw.converter.ConvertHelper.ofd2pdf(ConvertHelper.java:63) ~[pdf-converter-1.0-SNAPSHOT-jar-with-dependencies.jar:?]
+	... 4 more
+2025-05-08 06:40:27.182 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 开始转换PDF到OFD，输入文件：D:\Desktop\未命名1.pdf，输出文件：D:\Desktop\122112.ofd
+2025-05-08 06:40:27.184 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 正在进行转换...
+2025-05-08 06:42:46.000 [Thread-3] INFO  com.pdfconverter.service.ConversionService - 开始转换PDF到OFD，输入文件：D:\Desktop\未命名1_加水印.pdf，输出文件：D:\Desktop\未命名1_加水印.ofd
+2025-05-08 06:42:46.001 [Thread-3] INFO  com.pdfconverter.service.ConversionService - 正在进行转换...
+2025-05-08 06:43:35.723 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 开始转换PDF到OFD，输入文件：D:\Desktop\未命名1_加水印.pdf，输出文件：D:\Desktop\未命名1_加水印.ofd
+2025-05-08 06:43:35.726 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 正在进行转换...
+2025-05-08 06:52:07.145 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 开始转换PDF到OFD，输入文件：D:\Desktop\未命名1_加水印.pdf，输出文件：D:\Desktop\12121.ofd
+2025-05-08 06:52:07.148 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 正在进行转换...
+2025-05-08 06:52:07.374 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 转换完成，文件已保存到：D:\Desktop\12121.ofd
+2025-05-08 06:53:34.034 [Thread-1] INFO  com.pdfconverter.service.ConversionService - 开始转换PDF到OFD，输入文件：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.pdf，输出文件：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.ofd
+2025-05-08 06:53:34.035 [Thread-1] INFO  com.pdfconverter.service.ConversionService - 正在进行转换...
+2025-05-08 06:53:34.284 [Thread-1] INFO  com.pdfconverter.service.ConversionService - 转换完成，文件已保存到：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.ofd
+2025-05-08 06:56:25.543 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 开始转换PDF到Word，输入文件：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.pdf，输出文件：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.docx
+2025-05-08 06:56:26.304 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 转换完成，文件已保存到：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.docx
+2025-05-08 07:00:22.551 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 开始转换PDF到OFD，输入文件：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.pdf，输出文件：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.ofd
+2025-05-08 07:00:22.556 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 正在进行转换...
+2025-05-08 07:00:23.026 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 转换完成，文件已保存到：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.ofd
+2025-05-08 07:00:26.850 [Thread-1] INFO  com.pdfconverter.service.ConversionService - 开始转换PDF到Word，输入文件：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.pdf，输出文件：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.docx
+2025-05-08 07:00:27.358 [Thread-1] INFO  com.pdfconverter.service.ConversionService - 转换完成，文件已保存到：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.docx
+2025-05-08 07:02:22.980 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 开始转换PDF到OFD，输入文件：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.pdf，输出文件：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.ofd
+2025-05-08 07:02:22.983 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 正在进行转换...
+2025-05-08 07:02:23.420 [Thread-0] INFO  com.pdfconverter.service.ConversionService - 转换完成，文件已保存到：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.ofd
+2025-05-08 07:02:27.323 [Thread-1] INFO  com.pdfconverter.service.ConversionService - 开始转换PDF到Word，输入文件：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.pdf，输出文件：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.docx
+2025-05-08 07:02:27.850 [Thread-1] INFO  com.pdfconverter.service.ConversionService - 转换完成，文件已保存到：D:\Desktop\25332000000007330912_深圳市宝安区松岗诚峰包装制品厂_20250106110556.docx
+2025-05-08 07:11:40.683 [AWT-EventQueue-0] ERROR com.pdfconverter.ui.MainFrame - 找不到图标文件: /icons/app_icon.png
+2025-05-08 07:12:19.833 [AWT-EventQueue-0] ERROR com.pdfconverter.ui.MainFrame - 找不到图标文件: /icons/app_icon.png
